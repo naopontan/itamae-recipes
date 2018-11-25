@@ -1,0 +1,7 @@
+*filter
+:INPUT ACCEPT [63:4464]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [73:25970]
+-A INPUT -s <%= node["myhome_ip"] -%> -p tcp -m tcp --dport 443 -j ACCEPT
+-A INPUT -p tcp -m tcp --dport 443 -j DROP
+COMMIT
